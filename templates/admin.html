@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  </head>
+
+<body>
+
+<!-- 🔷 Navbar -->
+<div class="navbar">
+    <a href="/dashboard">Dashboard</a>
+    <a href="/playground">Playground</a>
+    <a href="/report">Reports</a>
+    <a href="/">Logout</a>
+</div>
+
+<!-- 🔷 Main Container -->
+<div class="container">
+
+    <div class="card">
+        <h2 class="glow">⚠️ Attack Logs</h2>
+
+        <table>
+            <tr>
+                <th>Payload</th>
+                <th>Status</th>
+                <th>Time</th>
+            </tr>
+
+            {% for log in logs %}
+            <tr>
+                <td>{{ log[1] }}</td>
+
+                <!-- 🔥 Color Status -->
+                <td class="
+                    {% if log[2] == 'SUCCESS' %}success
+                    {% elif log[2] == 'FAILED' %}failed
+                    {% else %}error
+                    {% endif %}
+                ">
+                    {{ log[2] }}
+                </td>
+
+                <td>{{ log[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

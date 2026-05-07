@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SQL Injection Playground</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- 🔷 Navbar -->
+<div class="navbar">
+    <a href="/dashboard">Dashboard</a>
+    <a href="/admin">Admin</a>
+    <a href="/report">Reports</a>
+    <a href="/">Logout</a>
+</div>
+
+<!-- 🔷 Main Container -->
+<div class="container">
+
+    <!-- 🧪 Playground Card -->
+    <div class="card">
+        <h2 class="glow">🧪 SQL Injection Playground</h2>
+
+        <form method="POST">
+            <input name="payload" placeholder="Enter SQL Injection payload" required>
+            <button>Execute Attack</button>
+        </form>
+
+        
+    </div>
+
+    <!-- 📊 Result Card -->
+    {% if result %}
+    <div class="card">
+        <h3 class="glow">📊 Result</h3>
+        <p class="success" style="text-align:center;">
+            Query Executed Successfully!
+        </p>
+    </div>
+    {% endif %}
+
+    <!-- ⚠️ Info Card -->
+    <div class="card">
+        <h3>⚠️ About</h3>
+        <p style="text-align:center;">
+            This section allows users to test SQL Injection payloads and observe how the system behaves.
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>

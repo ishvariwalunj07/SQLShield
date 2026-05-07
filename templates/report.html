@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reports</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- 🔷 Navbar -->
+<div class="navbar">
+    <a href="/dashboard">Dashboard</a>
+    <a href="/playground">Playground</a>
+    <a href="/admin">Admin</a>
+    <a href="/">Logout</a>
+</div>
+
+<!-- 🔷 Main Container -->
+<div class="container">
+
+    <!-- 📊 Report Title -->
+    <div class="card">
+        <h2 class="glow">📊 Attack Reports</h2>
+        <p style="text-align:center;">Overview of SQL Injection activity</p>
+    </div>
+
+    <!-- 🔢 Stats Cards -->
+    <div class="card">
+        <h3>🚨 Total Attacks</h3>
+        <p style="font-size: 28px; text-align:center;">{{ total }}</p>
+    </div>
+
+    <div class="card">
+        <h3>✅ Successful Attacks</h3>
+        <p class="success" style="font-size: 28px; text-align:center;">
+            {{ success }}
+        </p>
+    </div>
+
+    <!-- 📈 Info -->
+    <div class="card">
+        <h3>📌 Analysis</h3>
+        <p style="text-align:center;">
+            This report shows how many SQL Injection attempts were made and how many were successful.
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>
